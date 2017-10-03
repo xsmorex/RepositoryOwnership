@@ -1,0 +1,22 @@
+{
+  "name": "indorse",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xsmorex/RepositoryOwnership.git"
+  },
+  "keywords": [
+    "node"
+  ],
+  "author": "xsmorex",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xsmorex/RepositoryOwnership/issues"
+  },
+  "homepage": "https://github.com/xsmorex/RepositoryOwnership#readme"
+}
