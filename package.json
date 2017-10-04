@@ -1,22 +1,26 @@
 {
-  "name": "indorse",
+  "name": "indorse-demo",
   "version": "1.0.0",
-  "description": "",
-  "main": "server.js",
+  "description": "Demo for indorse",
+  "main": "npm start",
   "scripts": {
-    "test": "test"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/xsmorex/RepositoryOwnership.git"
+    "url": "git+https://github.com/xsmorex/IndorseDemo.git"
   },
-  "keywords": [
-    "node"
-  ],
-  "author": "xsmorex",
+  "author": "Anna",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/xsmorex/RepositoryOwnership/issues"
+    "url": "https://github.com/xsmorex/IndorseDemo/issues"
   },
-  "homepage": "https://github.com/xsmorex/RepositoryOwnership#readme"
+  "homepage": "https://github.com/xsmorex/IndorseDemo#readme",
+  "dependencies": {
+    "express": "^4.16.1",
+    "body-parser": "^1.18.2",
+    "node-env-file": "^0.1.8",
+    "nodemailer": "^4.1.2",
+    "uniqid": "^4.1.1"
+  }
 }
