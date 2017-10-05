@@ -1,36 +1,30 @@
+let { Repository, FileContentsFetcher } = require("./../GitHub");
+
 module.exports = class Claim {
 
   constructor(email, hash, repositoryURL) {
     this.hash = hash;
     this.email = email;
     this.repositoryURL = repositoryURL;
+
+    // Verification status. This will turn into true after the hash has been added to the repo and verified.
+    this.verified = false;
+    this.verificationAttempted = false;
   }
 
   verifyClaim() {
-    /**
-     * TODO
-     * Visit github and check the secret file of the repository to see if the hash in that matches
-     * with the hash for this claim.
-     *
-     * Return true if it matches. Return false if it doesn't match.
-     *
-     * Steps
-     * -----
-     * 1) Visit Github repository and check the "secret" file.
-     * 2) If the secret file does not exist, return false. If it does exist, proceed to step 3.
-     * 3) Compare the contents of this.hash and the contents of the "secret" file. If they match, return true.
-     *    Else, return false.
-     *
-     */
-    return false;
+    this.verificationAttempted = true;
+
+    let repository = new Repository(this.repositoryURL);
+    return FileContentsFetcher.getSecretFileContents(repository).then(secretFileContent => {
+      // If the secretFile's data matches the hash then set the verified status to true.
+      this.verified = (secretFileContent.includes(this.hash));
+      return this.getClaim();
+    });
   }
 
   getClaim() {
-    return {
-      email: this.email,
-      hash: this.hash,
-      repositoryURL: this.repositoryURL
-    }
+    return this;
   }
 
 };

@@ -28,10 +28,7 @@ module.exports = class ClaimHandler {
   }
 
   getClaim(hash) {
-    if (this.claims[hash] !== undefined) {
-      return this.claims[hash];
-    }
-    return null;
+    return this.claims[hash];
   }
 
   getAllClaims() {

@@ -34,7 +34,7 @@ app.get('/getclaim', function(req, res) {
   let hash = req.param("hash");
   let claim = claims.getClaim(hash);
 
-  if (claim === null) {
+  if (claim === undefined || claim === null) {
     res.status(404).send({
       status: 404,
       error: "Claim not found."
@@ -42,6 +42,23 @@ app.get('/getclaim', function(req, res) {
   } else {
     res.send(claim);
   }
+});
+
+app.get('/verifyclaim', function(req, res) {
+  let hash = req.param("hash");
+  let claim = claims.getClaim(hash);
+
+  if (claim === undefined || claim === null) {
+    res.status(404).send({
+      status: 404,
+      error: "Claim not found."
+    });
+  } else {
+    claim.verifyClaim().then( () => {
+      res.send(claim);
+    });
+  }
+
 });
 
 app.get('/allclaims', function(req, res) {
