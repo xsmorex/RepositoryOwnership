@@ -20,7 +20,7 @@
     "body-parser": "^1.18.2",
     "express": "^4.16.1",
     "node-env-file": "^0.1.8",
-    "node-fetch": "^1.7.3",
+    "node-fetch": "^2.6.1",
     "nodemailer": "^4.1.2",
     "uniqid": "^4.1.1"
   }
